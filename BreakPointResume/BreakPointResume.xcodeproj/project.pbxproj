@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B98ECAFAA3E71068A31E340C /* libPods-BreakPointResume.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E56A6F7485A647C3C1C52373 /* libPods-BreakPointResume.a */; };
+		D22638981F98A7BB00FD149B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D22638971F98A7BB00FD149B /* main.m */; };
+		D226389B1F98A7BB00FD149B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D226389A1F98A7BB00FD149B /* AppDelegate.m */; };
+		D226389E1F98A7BB00FD149B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D226389D1F98A7BB00FD149B /* ViewController.m */; };
+		D22638A11F98A7BB00FD149B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D226389F1F98A7BB00FD149B /* Main.storyboard */; };
+		D22638A31F98A7BB00FD149B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22638A21F98A7BB00FD149B /* Assets.xcassets */; };
+		D22638A61F98A7BB00FD149B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D22638A41F98A7BB00FD149B /* LaunchScreen.storyboard */; };
+		D22638B11F98A7BB00FD149B /* BreakPointResumeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D22638B01F98A7BB00FD149B /* BreakPointResumeTests.m */; };
+		D22638BC1F98A7BB00FD149B /* BreakPointResumeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D22638BB1F98A7BB00FD149B /* BreakPointResumeUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D22638AD1F98A7BB00FD149B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D226388B1F98A7BB00FD149B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D22638921F98A7BB00FD149B;
+			remoteInfo = BreakPointResume;
+		};
+		D22638B81F98A7BB00FD149B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D226388B1F98A7BB00FD149B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D22638921F98A7BB00FD149B;
+			remoteInfo = BreakPointResume;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2E785A9D47D82221BAC0B956 /* Pods-BreakPointResume.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakPointResume.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreakPointResume/Pods-BreakPointResume.release.xcconfig"; sourceTree = "<group>"; };
+		90D29649465AC371253612DA /* Pods-BreakPointResume.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakPointResume.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreakPointResume/Pods-BreakPointResume.debug.xcconfig"; sourceTree = "<group>"; };
+		D22638931F98A7BB00FD149B /* BreakPointResume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakPointResume.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D22638971F98A7BB00FD149B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D22638991F98A7BB00FD149B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D226389A1F98A7BB00FD149B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D226389C1F98A7BB00FD149B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D226389D1F98A7BB00FD149B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D22638A01F98A7BB00FD149B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D22638A21F98A7BB00FD149B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D22638A51F98A7BB00FD149B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D22638A71F98A7BB00FD149B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22638AC1F98A7BB00FD149B /* BreakPointResumeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakPointResumeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D22638B01F98A7BB00FD149B /* BreakPointResumeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakPointResumeTests.m; sourceTree = "<group>"; };
+		D22638B21F98A7BB00FD149B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22638B71F98A7BB00FD149B /* BreakPointResumeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakPointResumeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D22638BB1F98A7BB00FD149B /* BreakPointResumeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakPointResumeUITests.m; sourceTree = "<group>"; };
+		D22638BD1F98A7BB00FD149B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E56A6F7485A647C3C1C52373 /* libPods-BreakPointResume.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BreakPointResume.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D22638901F98A7BB00FD149B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B98ECAFAA3E71068A31E340C /* libPods-BreakPointResume.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D22638A91F98A7BB00FD149B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D22638B41F98A7BB00FD149B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02F09B9F9FCEA0A920CE334C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E56A6F7485A647C3C1C52373 /* libPods-BreakPointResume.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB048A9ECF6621E78EE44F66 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90D29649465AC371253612DA /* Pods-BreakPointResume.debug.xcconfig */,
+				2E785A9D47D82221BAC0B956 /* Pods-BreakPointResume.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D226388A1F98A7BB00FD149B = {
+			isa = PBXGroup;
+			children = (
+				D22638951F98A7BB00FD149B /* BreakPointResume */,
+				D22638AF1F98A7BB00FD149B /* BreakPointResumeTests */,
+				D22638BA1F98A7BB00FD149B /* BreakPointResumeUITests */,
+				D22638941F98A7BB00FD149B /* Products */,
+				AB048A9ECF6621E78EE44F66 /* Pods */,
+				02F09B9F9FCEA0A920CE334C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D22638941F98A7BB00FD149B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D22638931F98A7BB00FD149B /* BreakPointResume.app */,
+				D22638AC1F98A7BB00FD149B /* BreakPointResumeTests.xctest */,
+				D22638B71F98A7BB00FD149B /* BreakPointResumeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D22638951F98A7BB00FD149B /* BreakPointResume */ = {
+			isa = PBXGroup;
+			children = (
+				D22638991F98A7BB00FD149B /* AppDelegate.h */,
+				D226389A1F98A7BB00FD149B /* AppDelegate.m */,
+				D226389C1F98A7BB00FD149B /* ViewController.h */,
+				D226389D1F98A7BB00FD149B /* ViewController.m */,
+				D226389F1F98A7BB00FD149B /* Main.storyboard */,
+				D22638A21F98A7BB00FD149B /* Assets.xcassets */,
+				D22638A41F98A7BB00FD149B /* LaunchScreen.storyboard */,
+				D22638A71F98A7BB00FD149B /* Info.plist */,
+				D22638961F98A7BB00FD149B /* Supporting Files */,
+			);
+			path = BreakPointResume;
+			sourceTree = "<group>";
+		};
+		D22638961F98A7BB00FD149B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D22638971F98A7BB00FD149B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D22638AF1F98A7BB00FD149B /* BreakPointResumeTests */ = {
+			isa = PBXGroup;
+			children = (
+				D22638B01F98A7BB00FD149B /* BreakPointResumeTests.m */,
+				D22638B21F98A7BB00FD149B /* Info.plist */,
+			);
+			path = BreakPointResumeTests;
+			sourceTree = "<group>";
+		};
+		D22638BA1F98A7BB00FD149B /* BreakPointResumeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D22638BB1F98A7BB00FD149B /* BreakPointResumeUITests.m */,
+				D22638BD1F98A7BB00FD149B /* Info.plist */,
+			);
+			path = BreakPointResumeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D22638921F98A7BB00FD149B /* BreakPointResume */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D22638C01F98A7BB00FD149B /* Build configuration list for PBXNativeTarget "BreakPointResume" */;
+			buildPhases = (
+				9BFFA46C6AED99816701E9E3 /* [CP] Check Pods Manifest.lock */,
+				D226388F1F98A7BB00FD149B /* Sources */,
+				D22638901F98A7BB00FD149B /* Frameworks */,
+				D22638911F98A7BB00FD149B /* Resources */,
+				DB63D2A4AC47BE2F61F2775A /* [CP] Embed Pods Frameworks */,
+				7CE6A6355E0FC4CEA9BDB543 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BreakPointResume;
+			productName = BreakPointResume;
+			productReference = D22638931F98A7BB00FD149B /* BreakPointResume.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D22638AB1F98A7BB00FD149B /* BreakPointResumeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D22638C31F98A7BB00FD149B /* Build configuration list for PBXNativeTarget "BreakPointResumeTests" */;
+			buildPhases = (
+				D22638A81F98A7BB00FD149B /* Sources */,
+				D22638A91F98A7BB00FD149B /* Frameworks */,
+				D22638AA1F98A7BB00FD149B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D22638AE1F98A7BB00FD149B /* PBXTargetDependency */,
+			);
+			name = BreakPointResumeTests;
+			productName = BreakPointResumeTests;
+			productReference = D22638AC1F98A7BB00FD149B /* BreakPointResumeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D22638B61F98A7BB00FD149B /* BreakPointResumeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D22638C61F98A7BB00FD149B /* Build configuration list for PBXNativeTarget "BreakPointResumeUITests" */;
+			buildPhases = (
+				D22638B31F98A7BB00FD149B /* Sources */,
+				D22638B41F98A7BB00FD149B /* Frameworks */,
+				D22638B51F98A7BB00FD149B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D22638B91F98A7BB00FD149B /* PBXTargetDependency */,
+			);
+			name = BreakPointResumeUITests;
+			productName = BreakPointResumeUITests;
+			productReference = D22638B71F98A7BB00FD149B /* BreakPointResumeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D226388B1F98A7BB00FD149B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = gocomtech;
+				TargetAttributes = {
+					D22638921F98A7BB00FD149B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					D22638AB1F98A7BB00FD149B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D22638921F98A7BB00FD149B;
+					};
+					D22638B61F98A7BB00FD149B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D22638921F98A7BB00FD149B;
+					};
+				};
+			};
+			buildConfigurationList = D226388E1F98A7BB00FD149B /* Build configuration list for PBXProject "BreakPointResume" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D226388A1F98A7BB00FD149B;
+			productRefGroup = D22638941F98A7BB00FD149B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D22638921F98A7BB00FD149B /* BreakPointResume */,
+				D22638AB1F98A7BB00FD149B /* BreakPointResumeTests */,
+				D22638B61F98A7BB00FD149B /* BreakPointResumeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D22638911F98A7BB00FD149B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22638A61F98A7BB00FD149B /* LaunchScreen.storyboard in Resources */,
+				D22638A31F98A7BB00FD149B /* Assets.xcassets in Resources */,
+				D22638A11F98A7BB00FD149B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D22638AA1F98A7BB00FD149B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D22638B51F98A7BB00FD149B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7CE6A6355E0FC4CEA9BDB543 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreakPointResume/Pods-BreakPointResume-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BFFA46C6AED99816701E9E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BreakPointResume-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB63D2A4AC47BE2F61F2775A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BreakPointResume/Pods-BreakPointResume-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D226388F1F98A7BB00FD149B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D226389E1F98A7BB00FD149B /* ViewController.m in Sources */,
+				D226389B1F98A7BB00FD149B /* AppDelegate.m in Sources */,
+				D22638981F98A7BB00FD149B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D22638A81F98A7BB00FD149B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22638B11F98A7BB00FD149B /* BreakPointResumeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D22638B31F98A7BB00FD149B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22638BC1F98A7BB00FD149B /* BreakPointResumeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D22638AE1F98A7BB00FD149B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D22638921F98A7BB00FD149B /* BreakPointResume */;
+			targetProxy = D22638AD1F98A7BB00FD149B /* PBXContainerItemProxy */;
+		};
+		D22638B91F98A7BB00FD149B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D22638921F98A7BB00FD149B /* BreakPointResume */;
+			targetProxy = D22638B81F98A7BB00FD149B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D226389F1F98A7BB00FD149B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D22638A01F98A7BB00FD149B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D22638A41F98A7BB00FD149B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D22638A51F98A7BB00FD149B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D22638BE1F98A7BB00FD149B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D22638BF1F98A7BB00FD149B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D22638C11F98A7BB00FD149B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90D29649465AC371253612DA /* Pods-BreakPointResume.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BreakPointResume/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartdot.BreakPointResume;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D22638C21F98A7BB00FD149B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E785A9D47D82221BAC0B956 /* Pods-BreakPointResume.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BreakPointResume/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartdot.BreakPointResume;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D22638C41F98A7BB00FD149B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BreakPointResumeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartdot.BreakPointResumeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakPointResume.app/BreakPointResume";
+			};
+			name = Debug;
+		};
+		D22638C51F98A7BB00FD149B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = BreakPointResumeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartdot.BreakPointResumeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BreakPointResume.app/BreakPointResume";
+			};
+			name = Release;
+		};
+		D22638C71F98A7BB00FD149B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BreakPointResumeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartdot.BreakPointResumeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BreakPointResume;
+			};
+			name = Debug;
+		};
+		D22638C81F98A7BB00FD149B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = BreakPointResumeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.smartdot.BreakPointResumeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = BreakPointResume;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D226388E1F98A7BB00FD149B /* Build configuration list for PBXProject "BreakPointResume" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22638BE1F98A7BB00FD149B /* Debug */,
+				D22638BF1F98A7BB00FD149B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D22638C01F98A7BB00FD149B /* Build configuration list for PBXNativeTarget "BreakPointResume" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22638C11F98A7BB00FD149B /* Debug */,
+				D22638C21F98A7BB00FD149B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D22638C31F98A7BB00FD149B /* Build configuration list for PBXNativeTarget "BreakPointResumeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22638C41F98A7BB00FD149B /* Debug */,
+				D22638C51F98A7BB00FD149B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D22638C61F98A7BB00FD149B /* Build configuration list for PBXNativeTarget "BreakPointResumeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22638C71F98A7BB00FD149B /* Debug */,
+				D22638C81F98A7BB00FD149B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D226388B1F98A7BB00FD149B /* Project object */;
+}
