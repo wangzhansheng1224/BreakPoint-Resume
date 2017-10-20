@@ -77,50 +77,36 @@ UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确 定" style:UIAl
 
 - (void)downFileFromServer{
     
-    //远程地址
-    NSURL *URL = [NSURL URLWithString:@"http://www.baidu.com/img/bdlogo.png"];
-    //默认配置
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSString *path1 = [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/Documents/半塘.mp4"]];
+    NSString *url = @"http://static.yizhibo.com/pc_live/static/video.swf?onPlay=YZB.play&onPause=YZB.pause&onSeek=YZB.seek&scid=pALRs7JBtTRU9TWy";
+    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
-    //AFN3.0+基于封住URLSession的句柄
-    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
     
-    //请求
-    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/css", @"text/xml", @"text/plain", @"application/javascript", @"application/x-www-form-urlencoded", @"image/*", nil];
+     NSURLSessionTask *sessionTask = nil;
+
     
-    //下载Task操作
-    _downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-        // @property int64_t totalUnitCount;     需要下载文件的总大小
-        // @property int64_t completedUnitCount; 当前已经下载的大小
-        
-        // 给Progress添加监听 KVO
-        NSLog(@"%f",1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-        // 回到主队列刷新UI
-        dispatch_async(dispatch_get_main_queue(), ^{
-            // 设置进度条的百分比
-            
-            //            self.progressView.progress = 1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
-        });
-        
+    sessionTask = [manager downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
+        NSLog(@"下载进度：%.2lld%%",100 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        
-        //- block的返回值, 要求返回一个URL, 返回的这个URL就是文件的位置的路径
-        
-        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [cachesPath stringByAppendingPathComponent:response.suggestedFilename];
-        return [NSURL fileURLWithPath:path];
-        
+        if (!path1)
+        {
+            NSURL *downloadURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+            NSLog(@"默认路径--%@",downloadURL);
+            return [downloadURL URLByAppendingPathComponent:[response suggestedFilename]];
+        }
+        else
+        {
+            return [NSURL fileURLWithPath:path1];
+        }
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        //设置下载完成操作
-        NSLog(@"2");
-        // filePath就是你下载文件的位置，你可以解压，也可以直接拿来使用
-        
-        //        NSString *imgFilePath = [filePath path];// 将NSURL转成NSString
-        //        UIImage *img = [UIImage imageWithContentsOfFile:imgFilePath];
-        //        self.imageView.image = img;
-        
+        NSLog(@"下载文件成功");
+        NSLog(@"下载完成，路径为：%@", filePath);
     }];
+    
+    [sessionTask resume];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
