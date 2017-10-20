@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B98ECAFAA3E71068A31E340C /* libPods-BreakPointResume.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E56A6F7485A647C3C1C52373 /* libPods-BreakPointResume.a */; };
+		5B4DC0B17F01E14E49B0D57C /* libPods-BreakPointResume.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ABFAA498F393BE468A7C02 /* libPods-BreakPointResume.a */; };
 		D22638981F98A7BB00FD149B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D22638971F98A7BB00FD149B /* main.m */; };
 		D226389B1F98A7BB00FD149B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D226389A1F98A7BB00FD149B /* AppDelegate.m */; };
 		D226389E1F98A7BB00FD149B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D226389D1F98A7BB00FD149B /* ViewController.m */; };
@@ -37,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		2E785A9D47D82221BAC0B956 /* Pods-BreakPointResume.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakPointResume.release.xcconfig"; path = "Pods/Target Support Files/Pods-BreakPointResume/Pods-BreakPointResume.release.xcconfig"; sourceTree = "<group>"; };
+		80ABFAA498F393BE468A7C02 /* libPods-BreakPointResume.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BreakPointResume.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D29649465AC371253612DA /* Pods-BreakPointResume.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BreakPointResume.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BreakPointResume/Pods-BreakPointResume.debug.xcconfig"; sourceTree = "<group>"; };
 		D22638931F98A7BB00FD149B /* BreakPointResume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakPointResume.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22638971F98A7BB00FD149B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,7 +55,7 @@
 		D22638B71F98A7BB00FD149B /* BreakPointResumeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BreakPointResumeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22638BB1F98A7BB00FD149B /* BreakPointResumeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakPointResumeUITests.m; sourceTree = "<group>"; };
 		D22638BD1F98A7BB00FD149B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E56A6F7485A647C3C1C52373 /* libPods-BreakPointResume.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BreakPointResume.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2DDADDB1F98B09F00789B91 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B98ECAFAA3E71068A31E340C /* libPods-BreakPointResume.a in Frameworks */,
+				5B4DC0B17F01E14E49B0D57C /* libPods-BreakPointResume.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +87,7 @@
 		02F09B9F9FCEA0A920CE334C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E56A6F7485A647C3C1C52373 /* libPods-BreakPointResume.a */,
+				80ABFAA498F393BE468A7C02 /* libPods-BreakPointResume.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,6 +131,7 @@
 				D226389C1F98A7BB00FD149B /* ViewController.h */,
 				D226389D1F98A7BB00FD149B /* ViewController.m */,
 				D226389F1F98A7BB00FD149B /* Main.storyboard */,
+				D2DDADDB1F98B09F00789B91 /* PrefixHeader.pch */,
 				D22638A21F98A7BB00FD149B /* Assets.xcassets */,
 				D22638A41F98A7BB00FD149B /* LaunchScreen.storyboard */,
 				D22638A71F98A7BB00FD149B /* Info.plist */,
@@ -335,9 +337,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BreakPointResume/Pods-BreakPointResume-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -503,6 +510,8 @@
 			baseConfigurationReference = 90D29649465AC371253612DA /* Pods-BreakPointResume.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/wangzhansheng/断点续传/BreakPointResume/BreakPointResume/PrefixHeader.pch";
 				INFOPLIST_FILE = BreakPointResume/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -516,6 +525,8 @@
 			baseConfigurationReference = 2E785A9D47D82221BAC0B956 /* Pods-BreakPointResume.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/wangzhansheng/断点续传/BreakPointResume/BreakPointResume/PrefixHeader.pch";
 				INFOPLIST_FILE = BreakPointResume/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
