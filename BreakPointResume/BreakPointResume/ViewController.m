@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#define Picture_Url @"http://map.onegreen.net/%E4%B8%AD%E5%9B%BD%E6%94%BF%E5%8C%BA2500.jpg"
 
 #define BAKit_ShowAlertWithMsg(msg) UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:msg preferredStyle:UIAlertControllerStyleAlert];\
 UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确 定" style:UIAlertActionStyleDefault handler:nil];\
@@ -14,10 +15,8 @@ UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确 定" style:UIAl
 [self presentViewController:alert animated:YES completion:nil];
 
 @interface ViewController ()
-{
-    // 下载句柄
-    NSURLSessionDownloadTask *_downloadTask;
-}
+@property (nonatomic, strong) NSString *cachePath;
+@property(nonatomic , strong) AFHTTPRequestOperation* requestOperation;
 @end
 
 @implementation ViewController
@@ -76,42 +75,155 @@ UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"确 定" style:UIAl
 }
 
 - (void)downFileFromServer{
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(50, 50, 200, 200)];
+    imageView.backgroundColor = [UIColor redColor];
     
-    NSString *path1 = [NSHomeDirectory() stringByAppendingString:[NSString stringWithFormat:@"/Documents/半塘.mp4"]];
-    NSString *url = @"http://static.yizhibo.com/pc_live/static/video.swf?onPlay=YZB.play&onPause=YZB.pause&onSeek=YZB.seek&scid=pALRs7JBtTRU9TWy";
-    NSURLRequest *downloadRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [self.view addSubview:imageView];
+    __weak typeof(self) weakself = self;
+    self.cachePath=[NSHomeDirectory() stringByAppendingString:@"/Documents/temp0"];
+    //获取缓存的长度
+    long long cacheLength = [[self class] cacheFileWithPath:self.cachePath];
+    
+    NSLog(@"cacheLength = %llu",cacheLength);
+    
+    //获取请求
+    NSMutableURLRequest* request = [[self class] requestWithUrl:Picture_Url Range:cacheLength];
     
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", @"text/html", @"text/css", @"text/xml", @"text/plain", @"application/javascript", @"application/x-www-form-urlencoded", @"image/*", nil];
-     NSURLSessionTask *sessionTask = nil;
-
+    self.requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [self.requestOperation setOutputStream:[NSOutputStream outputStreamToFileAtPath:self.cachePath append:NO]];
     
-    sessionTask = [manager downloadTaskWithRequest:downloadRequest progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"下载进度：%.2lld%%",100 * downloadProgress.completedUnitCount/downloadProgress.totalUnitCount);
-    } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-        if (!path1)
-        {
-            NSURL *downloadURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-            NSLog(@"默认路径--%@",downloadURL);
-            return [downloadURL URLByAppendingPathComponent:[response suggestedFilename]];
-        }
-        else
-        {
-            return [NSURL fileURLWithPath:path1];
-        }
-    } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        NSLog(@"下载文件成功");
-        NSLog(@"下载完成，路径为：%@", filePath);
+    //处理流
+    [self readCacheToOutStreamWithPath:self.cachePath];
+    
+    
+    [self.requestOperation addObserver:self forKeyPath:@"isPaused" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    
+    //重组进度block
+    [self.requestOperation setDownloadProgressBlock:[self getNewProgressBlockWithCacheLength:cacheLength]];
+    
+    // 下载进度回调
+    [self.requestOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        
+    
+        // 下载进度
+       NSLog(@"正在下载%.02f %llu %llu",((float)totalBytesRead +(float)cacheLength)/((float)totalBytesExpectedToRead + (float)cacheLength),totalBytesRead + cacheLength,totalBytesExpectedToRead + cacheLength);
+        NSData* data = [NSData dataWithContentsOfFile:weakself.cachePath];
+        UIImage *iamge=[UIImage imageWithData:data];
+        [imageView setImage:iamge];
     }];
     
-    [sessionTask resume];
+    // 成功和失败回调
+    [self.requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"1");
+//        successBlock(operation, responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"2");
+//        failureBlock(operation, error);
+    }];
+    
+    [self.requestOperation start];
 
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+#pragma mark - 获取本地缓存的字节
++(long long)cacheFileWithPath:(NSString*)path
+{
+    NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:path];
+    
+    NSData* contentData = [fh readDataToEndOfFile];
+    return contentData ? contentData.length : 0;
+    
 }
+
+//拼接Request
++(NSMutableURLRequest*)requestWithUrl:(id)url Range:(long long)length
+{
+    NSURL* requestUrl = [url isKindOfClass:[NSURL class]] ? url : [NSURL URLWithString:url];
+    
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestUrl
+                                                           cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                                       timeoutInterval:5*60];
+    
+    
+    if (length) {
+        [request setValue:[NSString stringWithFormat:@"bytes=%lld-",length] forHTTPHeaderField:@"Range"];
+    }
+    
+    NSLog(@"request.head = %@",request.allHTTPHeaderFields);
+    
+    return request;
+    
+}
+
+#pragma mark - 读取本地缓存入流
+-(void)readCacheToOutStreamWithPath:(NSString*)path
+{
+    NSFileHandle* fh = [NSFileHandle fileHandleForReadingAtPath:path];
+    NSData* currentData = [fh readDataToEndOfFile];
+    
+    if (currentData.length) {
+        //打开流，写入data ， 未打卡查看 streamCode = NSStreamStatusNotOpen
+        [self.requestOperation.outputStream open];
+        
+        NSInteger       bytesWritten;
+        NSInteger       bytesWrittenSoFar;
+        
+        NSInteger  dataLength = [currentData length];
+        const uint8_t * dataBytes  = [currentData bytes];
+        
+        bytesWrittenSoFar = 0;
+        do {
+            bytesWritten = [self.requestOperation.outputStream write:&dataBytes[bytesWrittenSoFar] maxLength:dataLength - bytesWrittenSoFar];
+            assert(bytesWritten != 0);
+            if (bytesWritten == -1) {
+                break;
+            } else {
+                bytesWrittenSoFar += bytesWritten;
+            }
+        } while (bytesWrittenSoFar != dataLength);
+        
+        
+    }
+}
+
+#pragma mark - 监听暂停
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    NSLog(@"keypath = %@ changeDic = %@",keyPath,change);
+    //暂停状态
+    if ([keyPath isEqualToString:@"isPaused"] && [[change objectForKey:@"new"] intValue] == 1) {
+        
+        
+        
+        long long cacheLength = [[self class] cacheFileWithPath:self.cachePath];
+        //暂停读取data 从文件中获取到NSNumber
+        cacheLength = [[self.requestOperation.outputStream propertyForKey:NSStreamFileCurrentOffsetKey] unsignedLongLongValue];
+        NSLog(@"cacheLength = %lld",cacheLength);
+        [self.requestOperation setValue:@"0" forKey:@"totalBytesRead"];
+        //重组进度block
+        [self.requestOperation setDownloadProgressBlock:[self getNewProgressBlockWithCacheLength:cacheLength]];
+    }
+}
+
+#pragma mark - 重组进度块
+-(void(^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))getNewProgressBlockWithCacheLength:(long long)cachLength
+{
+    typeof(self)newSelf = self;
+    void(^newProgressBlock)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) = ^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead)
+    {
+        NSData* data = [NSData dataWithContentsOfFile:self.cachePath];
+        [self.requestOperation setValue:data forKey:@"responseData"];
+        //        self.requestOperation.responseData = ;
+//        newSelf.progressBlock(bytesRead,totalBytesRead + cachLength,totalBytesExpectedToRead + cachLength);
+    };
+    
+    return newProgressBlock;
+}
+
 
 
 @end

@@ -2,5 +2,5 @@ platform :ios, '8.0'
 
 target:BreakPointResume do
    pod 'Masonry', '~> 1.0.2'
-   pod 'AFNetworking', '~> 3.1.0'
+   pod 'AFNetworking', '~> 2.0.0'
 end
